@@ -1,3 +1,6 @@
+using GreenApp.Model;
+using GreenApp.View;
+
 namespace GreenApp
 {
     public partial class EnterForm : Form
@@ -26,18 +29,47 @@ namespace GreenApp
             string userName = loginTextBox.Text;
             string userPassword = passwordTextBox.Text;
             string userRole = "";
-
-            if (string.IsNullOrEmpty(userName)&& string.IsNullOrEmpty(userPassword))
+            if (userName.Length != 0 && userPassword.Length != 0)
             {
-                for (int i=0; i<userData.Length;i++) 
+                for (int i = 0; i<userData.Length;i++) 
                 {
+
                     if (userData[i,0,0] == userName && userData[i,1,0] == userPassword ) 
                     { 
-                        userRole = userData[i,0,2];
-                        MessageBox.Show("Роль користувача:", userRole );
+                        userRole = userData[i,2,0];
+                        MessageBox.Show( userRole );
+                        ScreenRole(userRole);
+                        this.Hide();
+                        break;
+                        
                     }
                 }
             }
-        } 
+
+            
+        }
+        private void ScreenRole(string role)
+        {
+            switch (role)
+            {
+                case "agronom":
+                    View.ARM_Agronom ARM_Agronom = new View.ARM_Agronom();
+                    ARM_Agronom.Show();
+                    break;
+                case "mechanisator":
+                    View.ARM_Mechanisator ARM_Mechanisator = new View.ARM_Mechanisator();
+                    ARM_Mechanisator.Show();
+                    break;
+                case "economist":
+                    View.ARM_Economis ARM_Economist = new ARM_Economis();
+                    ARM_Economist.Show();
+                    break;
+                default:
+                    MessageBox.Show("Невідома роль користувача.");
+                    break;
+            } 
+        }
+           
+
     }
 }
