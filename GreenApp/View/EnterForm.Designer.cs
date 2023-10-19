@@ -1,6 +1,6 @@
 ﻿namespace GreenApp
 {
-    partial class Form1
+    partial class EnterForm
     {
         /// <summary>
         ///  Required designer variable.
