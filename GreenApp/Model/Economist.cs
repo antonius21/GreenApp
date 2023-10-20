@@ -8,13 +8,5 @@ namespace GreenApp.Model
 {
     internal class Economist: User
     {
-
-        public Economist() { }
-
-        public List<string> Autorization()
-        {
-            List<string> economists = new List<string>();
-            return economists; 
-        }
     }
 }

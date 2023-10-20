@@ -10,12 +10,11 @@ namespace GreenApp.ModelView
 {
     internal class EnterModelView
     {
-        private Array InitiaalisationArray()
+        private Array InitialisationArray()
         {
             Model.Economist  economist = new Model.Economist();
 
-            List <string> users = economist.Autorization();
-            string[,,] userData = new string[users.Count, users.Count, users.Count];
+            string[,,] userData = new string[4, 4, 4];
 
             userData[0, 0, 0] = "anton";
             userData[0, 1, 0] = "12345";
@@ -33,7 +32,7 @@ namespace GreenApp.ModelView
         }
         public void Authorisation(string _login, string _password)
         {
-            string [,,] users = (string[,,])InitiaalisationArray();
+            string [,,] users = (string[,,])InitialisationArray();
             if (_login.Length != 0 && _password.Length != 0)
             {
                 for (int i = 0; i < users.Length; i++)
